@@ -27,7 +27,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #ff6600;
+            color: #04ff00;
             position: fixed;
             top: 0;
             z-index: 100;
@@ -39,7 +39,7 @@
         }
 
         .navbar a {
-            color: #ff6600;
+            color: #04ff00;
             text-decoration: none;
             margin: 0 10px;
             font-size: 14px;
@@ -55,7 +55,7 @@
         .burger div {
             width: 25px;
             height: 3px;
-            background-color: #ff6600;
+            background-color: #04ff00;
             margin: 4px;
             transition: all 0.3s ease;
         }
@@ -78,7 +78,7 @@
             padding: 10px 15px;
             text-decoration: none;
             font-size: 18px;
-            color: #ff6600;
+            color: #04ff00;
             display: block;
             transition: 0.3s;
         }
@@ -160,7 +160,7 @@
 
         h1 {
             font-size: 36px;
-            color: #ff6600;
+            color: #04ff00;
             text-shadow: 2px 2px #000;
             margin-bottom: 20px;
             animation: fadeInSlide 2s ease-out;
@@ -207,18 +207,12 @@
             <div class="bar3"></div>
         </div>
         <div>
-            <a href="index.html">Home</a>
-            <a href="#">Games</a>
-            <a href="#">Contact</a>
         </div>
     </div>
 
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="#">Games</a>
-        <a href="#">Contact</a>
     </div>
 
     <!-- Arrière-plan animé avec Space Invaders -->
@@ -235,11 +229,26 @@
         <p>Bienvenue dans l'arcade nostalgique où vous pouvez revivre les jeux classiques qui ont marqué l'histoire. Explorez, jouez et profitez des souvenirs inoubliables de l'âge d'or du jeu vidéo.</p>
         <div class="swiper-container">
             <div class="swiper-wrapper">
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=sonic&title=Sonic'">
+                    <img src="sonic.jpg" alt="Sonic">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=mario&title=Mario'">
+                    <img src="mario.jpg" alt="Mario">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=smash&title=Super%20Smash%20Flash'">
+                    <img src="smash.jpg" alt="Super Smash Flash">
+                </div>
                 <div class="swiper-slide" onclick="window.location.href='game.html?game=run&title=Run%202'">
                     <img src="run.jpg" alt="Run 2">
                 </div>
                 <div class="swiper-slide" onclick="window.location.href='game.html?game=aow&title=Age%20of%20War'">
                     <img src="aow.jpg" alt="Age of War">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=simpsons&title=Simpsons'">
+                    <img src="simpsons.jpg" alt="Simpsons">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=lint&title=Lint'">
+                    <img src="lint.jpg" alt="Lint">
                 </div>
                 <!-- Ajoutez d'autres images de jeux ici -->
             </div>
