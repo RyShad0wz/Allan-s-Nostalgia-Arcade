@@ -70,6 +70,23 @@
         .back-button:hover {
             background-color: #04ff00;
         }
+        footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #33333300;
+    color: #04ff00;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 0;
+    z-index: 100;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
+}
     </style>
 </head>
 <body>
@@ -103,5 +120,8 @@
         document.getElementById('game').appendChild(game);
         game.load(getQueryParam('game') + '.swf');
     </script>
+    <footer>
+         <p>Allan B @2024</p>
+    </footer>    
 </body>
 </html>
