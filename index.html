@@ -19,7 +19,6 @@
             height: 100vh;
         }
 
-        /* Navbar */
         .navbar {
             background-color: #333;
             padding: 10px;
@@ -45,7 +44,6 @@
             font-size: 14px;
         }
 
-        /* Burger menu */
         .burger {
             display: none;
             flex-direction: column;
@@ -60,7 +58,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Sidebar */
         .sidebar {
             height: 100%;
             width: 0;
@@ -87,7 +84,6 @@
             background-color: #575757;
         }
 
-        /* Close button inside sidebar */
         .sidebar .closebtn {
             position: absolute;
             top: 0;
@@ -96,16 +92,15 @@
             margin-left: 50px;
         }
 
-        /* Responsive styling */
         @media screen and (max-width: 768px) {
             .navbar h1 {
                 font-size: 20px;
             }
             .navbar a {
-                display: none; /* Hide navbar links on mobile */
+                display: none; 
             }
             .burger {
-                display: flex; /* Show burger menu on mobile */
+                display: flex; 
             }
         }
 
@@ -121,7 +116,6 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* Animation background */
         .space-invaders {
             position: absolute;
             top: 0;
@@ -136,7 +130,7 @@
             position: absolute;
             width: 50px;
             height: 50px;
-            background-image: url('invader.png'); /* Une image de Space Invader */
+            background-image: url('invader.png'); 
             background-size: contain;
             background-repeat: no-repeat;
             animation: moveInvader 10s linear infinite;
@@ -151,7 +145,7 @@
             padding: 20px;
             position: relative;
             z-index: 10;
-            height: 100%; /* Prend toute la hauteur de l'écran */
+            height: 100%; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -184,28 +178,28 @@
         }
 
         .swiper-slide img {
-            width: 200px; /* Largeur fixe des images */
-            height: 150px; /* Hauteur fixe des images */
-            object-fit: cover; /* Remplit le conteneur tout en maintenant l'aspect ratio */
+            width: 200px; 
+            height: 150px;
+            object-fit: cover; 
             border-radius: 10px;
-            cursor: pointer; /* Le curseur change pour indiquer que l'image est cliquable */
+            cursor: pointer;
         }
 
         .swiper-slide {
-            background: none; /* Supprime le fond gris autour des images */
+            background: none; 
         }
 
         .swiper-pagination {
         display: none;
         }
 
-/* Style des flèches de navigation */
+
 .swiper-button-prev, .swiper-button-next {
     width: 50px;
     height: 50px;
-    color: #04ff00; /* Vert rétro */
-    font-size: 40px; /* Taille du texte */
-    font-family: 'Press Start 2P', cursive; /* Police de style pixelisé */
+    color: #04ff00; 
+    font-size: 40px; 
+    font-family: 'Press Start 2P', cursive; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,17 +210,14 @@
     cursor: pointer;
 }
 
-/* Style de la flèche précédente */
 .swiper-button-prev::before {
-    content: "<"; /* Flèche gauche */
+    content: "<";
 }
 
-/* Style de la flèche suivante */
 .swiper-button-next::before {
-    content: ">"; /* Flèche droite */
+    content: ">"; 
 }
 
-/* Position des flèches */
 .swiper-button-prev {
     left: 10px;
 }
@@ -235,7 +226,6 @@
     right: 10px;
 }
 
-/* Agrandir la zone cliquable pour les flèches */
 .swiper-button-prev::after, .swiper-button-next::after {
     content: '';
     position: absolute;
@@ -263,35 +253,32 @@ footer p {
     margin: 0;
 }
 
-/* Agrandir la miniature au survol */
 .swiper-slide img {
     transition: transform 0.3s ease;
 }
 
 .swiper-slide:hover img {
-    transform: scale(1.2); /* Agrandit la miniature */
+    transform: scale(1.2); 
 }
 
-/* Style du texte "clique pour jouer" */
 .play-text {
     position: absolute;
-    color: #04ff00; /* Vert rétro */
+    color: #04ff00; 
     font-family: 'Press Start 2P', cursive;
     font-size: 14px;
-    pointer-events: none; /* Le texte ne bloque pas le clic sur l'image */
+    pointer-events: none; 
     z-index: 20;
-    display: none; /* Caché par défaut */
+    display: none;
 }
 
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <div class="navbar">
         <h1>Allan's Nostalgic Arcade</h1>
         <div class="burger" onclick="toggleBurger(this)">
-            <div class="bar1"></div>
+            <div class="bar1">Accueil</div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
@@ -299,12 +286,10 @@ footer p {
         </div>
     </div>
 
-    <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
 
-    <!-- Arrière-plan animé avec Space Invaders -->
     <div class="space-invaders">
         <div class="invader" style="top: -100px; left: 10%;"></div>
         <div class="invader" style="top: -150px; left: 30%; animation-delay: 2s;"></div>
@@ -350,11 +335,10 @@ footer p {
                 <div class="swiper-slide" onclick="window.location.href='game.html?game=lint&title=Lint'">
                     <img src="lint.jpg" alt="Lint">
                 </div>
-                <!-- Ajoutez d'autres images de jeux ici -->
             </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
-            <!-- Add Pagination -->
+          
             <div class="swiper-pagination"></div>
         </div>
     </div>
@@ -400,13 +384,11 @@ const swiper = new Swiper('.swiper-container', {
             document.getElementById("mySidebar").style.width = "0";
         }
 
-         // Créer l'élément pour le texte "clique pour jouer"
     const playText = document.createElement('div');
     playText.classList.add('play-text');
     playText.textContent = 'Clique pour jouer';
     document.body.appendChild(playText);
 
-    // Gérer le survol de chaque miniature
     const slides = document.querySelectorAll('.swiper-slide img');
 
     slides.forEach(slide => {
@@ -419,20 +401,19 @@ const swiper = new Swiper('.swiper-container', {
         });
 
         slide.addEventListener('mousemove', (e) => {
-            // Positionner le texte à côté du curseur
-            playText.style.left = e.pageX + 15 + 'px'; // Décale le texte un peu à droite du curseur
-            playText.style.top = e.pageY + 15 + 'px';  // Décale le texte un peu en bas du curseur
+         
+            playText.style.left = e.pageX + 15 + 'px'; 
+            playText.style.top = e.pageY + 15 + 'px'; 
         });
     });
 
-    // Ajoute un écouteur d'événements pour les touches du clavier
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
-        // Si la touche "Flèche gauche" est pressée
-        swiper.slidePrev(); // Passe au slide précédent
+     
+        swiper.slidePrev(); 
     } else if (event.key === 'ArrowRight') {
-        // Si la touche "Flèche droite" est pressée
-        swiper.slideNext(); // Passe au slide suivant
+       
+        swiper.slideNext(); 
     }
 });
 
