@@ -44,54 +44,6 @@
             font-size: 14px;
         }
 
-        .burger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background-color: #04ff00;
-            margin: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            right: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            z-index: 150;
-        }
-
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #04ff00;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
         @media screen and (max-width: 768px) {
             .navbar h1 {
                 font-size: 20px;
@@ -278,7 +230,7 @@ footer p {
     <div class="navbar">
         <h1>Allan's Nostalgic Arcade</h1>
         <div class="burger" onclick="toggleBurger(this)">
-            <div class="bar1">Accueil</div>
+            <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
