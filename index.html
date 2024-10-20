@@ -106,12 +106,21 @@
         align-items: center;
     }
 
+        @keyframes arcadeBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
         h1 {
             font-size: 24px;
             color: #04ff00;
             text-shadow: 2px 2px #000;
             margin-bottom: 20px;
-            animation: fadeInSlide 2s ease-out;
+            animation: fadeInSlide 2s ease-out, arcadeBlink 1s infinite;
         }
 
         p {
