@@ -15,48 +15,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('https://i.imgur.com/6WwWV9s.png') repeat top center;
-            animation: stars 20s linear infinite;
-        }
-
-        @keyframes stars {
-            0% { background-position: 0 0; }
-            100% { background-position: 10000px 0; }
-        }
-
-        .rocket {
-            width: 50px;
-            height: 100px;
-            background: url('https://i.imgur.com/n3xL6gu.png') no-repeat center center;
-            background-size: contain;
-            position: absolute;
-            bottom: 50px;
-            animation: fly 3s ease-in-out infinite;
-        }
-
-        @keyframes fly {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
-            100% { transform: translateY(0); }
-        }
-
-        .loading-text {
-            font-size: 24px;
-            color: #04ff00;
-            text-align: center;
-            margin-top: 200px;
-            position: relative;
-            z-index: 10;
         }
 
         .navbar {
@@ -67,21 +25,19 @@
             justify-content: space-between;
             align-items: center;
             color: #04ff00;
-            position: absolute;
-            top: 0;
-            z-index: 10;
+            text-align: center;
         }
 
         .navbar h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 4vw; 
         }
 
         .navbar a {
             color: #04ff00;
             text-decoration: none;
             margin: 0 10px;
-            font-size: 14px;
+            font-size: 2.5vw; 
         }
 
         .game-container {
@@ -90,23 +46,22 @@
             background-color: #2e2e2e;
             border: 2px solid #444;
             border-radius: 10px;
-            width: 100%;
+            width: 90%; 
             max-width: 900px;
             text-align: center;
-            position: relative;
-            z-index: 10;
+            box-sizing: border-box;
         }
 
         .game-container canvas {
-            width: 100%;
-            height: auto;
+            width: 100%; 
+            height: auto; 
             border-radius: 10px;
         }
 
         #gameTitle {
             color: #04ff00;
             margin-bottom: 20px;
-            font-size: 28px;
+            font-size: 5vw; 
         }
 
         .back-button {
@@ -115,7 +70,7 @@
             color: #fff;
             border: none;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 4vw; 
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
@@ -133,7 +88,7 @@
             background-color: #33333300;
             color: #04ff00;
             font-family: 'Press Start 2P', cursive;
-            font-size: 12px;
+            font-size: 3vw; 
             text-align: center;
             padding: 5px 0;
             z-index: 100;
@@ -143,12 +98,33 @@
         footer p {
             margin: 0;
         }
+
+        
+        @media (max-width: 600px) {
+            .navbar h1 {
+                font-size: 6vw;
+            }
+
+            .navbar a {
+                font-size: 4vw;
+            }
+
+            #gameTitle {
+                font-size: 7vw;
+            }
+
+            .back-button {
+                font-size: 6vw;
+                padding: 8px 16px;
+            }
+
+            footer {
+                font-size: 4vw;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <div class="stars"></div>
-
     <div class="navbar">
         <h1>Allan's Nostalgic Arcade</h1>
         <div>
@@ -161,10 +137,6 @@
         <div id="game"></div>
     </div>
 
-    <div class="loading-text">Loading...</div>
-    
-    <div class="rocket"></div>
-
     <button class="back-button" onclick="window.history.back()">Retour à l'Accueil</button>
 
     <footer>
@@ -173,11 +145,6 @@
 
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <script>
-        window.onload = function() {
-            document.querySelector('.loading-text').style.display = 'none';
-            document.querySelector('.rocket').style.display = 'none';
-        };
-
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
@@ -191,6 +158,5 @@
         document.getElementById('game').appendChild(game);
         game.load(getQueryParam('game') + '.swf');
     </script>
-
 </body>
 </html>
