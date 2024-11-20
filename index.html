@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Loading...</title>
+    <meta name="description" content="Bienvenue sur Netflash, le site de jeux vidéo pour jouer aux jeux cultes des débuts de l'internet">
+    <title>Netflash</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
 
-        body {
-            font-family: 'Press Start 2P', cursive;
-            background-color: #000;
-            color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
-            background-image: url('space.png'); 
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed;
-        }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Press Start 2P', cursive;
+        background-color: #000;
+        color: #f0f0f0;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;       
+        background-image: url('space.png'); 
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed;
+    }
 
         .navbar {
             background-color: #333;
@@ -32,143 +35,398 @@
             justify-content: space-between;
             align-items: center;
             color: #04ff00;
-            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            z-index: 100;
         }
 
         .navbar h1 {
             margin: 0;
-            font-size: 20px;
-            word-wrap: break-word;
+            font-size: 24px;
         }
 
         .navbar a {
             color: #04ff00;
             text-decoration: none;
             margin: 0 10px;
-            font-size: 12px;
-        }
-
-        .game-container {
-            margin: 20px 0;
-            padding: 20px;
-            background-color: #2e2e2e;
-            border: 2px solid #444;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 900px;
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .game-container canvas {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            max-height: 80vh; /* Limite la hauteur à 80% de la hauteur de la fenêtre */
-        }
-
-        #gameTitle {
-            color: #04ff00;
-            margin-bottom: 20px;
-            font-size: 22px;
-            word-wrap: break-word;
-        }
-
-        .back-button {
-            margin-top: 20px;
-            background-color: #04ff00;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
             font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-family: 'Press Start 2P', cursive;
-            width: auto;
         }
 
-        .back-button:hover {
-            background-color: #04ff00;
-        }
-
-        footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            color: #04ff00;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 12px;
-            text-align: center;
-            padding: 10px 0;
-            z-index: 100;
-            box-sizing: border-box;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
+        @media screen and (max-width: 768px) {
             .navbar h1 {
-                font-size: 16px;
+                font-size: 20px;
             }
-
             .navbar a {
-                font-size: 10px;
+                display: none; 
             }
-
-            .game-container {
-                padding: 10px;
-            }
-
-            .game-container h2 {
-                font-size: 18px;
-            }
-
-            .back-button {
-                font-size: 12px;
-                padding: 8px 16px;
+            .burger {
+                display: flex; 
             }
         }
+
+        .change .bar1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .change .bar2 {
+            opacity: 0;
+        }
+
+        .change .bar3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .space-invaders {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .invader {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('invader.png'); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: moveInvader 10s linear infinite;
+        }
+
+        body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 0;
+        }
+
+        @keyframes moveInvader {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100vh); }
+        }
+
+    .container {
+        padding: 20px;
+        position: relative;
+        z-index: 10;
+        flex-grow: 1; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        @keyframes arcadeBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+        h1 {
+            font-size: 24px;
+            color: #04ff00;
+            text-shadow: 2px 2px #000;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #04ff00;
+            text-shadow: 2px 2px #000;
+            margin-bottom: 20px;
+            animation: fadeInSlide 2s ease-out, arcadeBlink 1s infinite;
+        }
+
+        p {
+            font-size: 14px;
+            max-width: 90%;
+            margin-bottom: 50px;
+        }
+
+        @keyframes fadeInSlide {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .swiper-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .swiper-slide img {
+            width: 200px; 
+            height: 150px;
+            object-fit: cover; 
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .swiper-slide {
+            background: none; 
+        }
+
+        .swiper-pagination {
+        display: none;
+        }
+
+
+.swiper-button-prev, .swiper-button-next {
+    width: 50px;
+    height: 50px;
+    color: #04ff00; 
+    font-size: 40px; 
+    font-family: 'Press Start 2P', cursive; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.swiper-button-prev::before {
+    content: "<";
+}
+
+.swiper-button-next::before {
+    content: ">"; 
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+    footer {
+        position: relative; 
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: #04ff00;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 12px;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+footer p {
+    margin: 0;
+}
+
+.swiper-slide img {
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover img {
+    transform: scale(1.2); 
+}
+
+.play-text {
+    position: absolute;
+    color: #04ff00; 
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    pointer-events: none; 
+    z-index: 20;
+    display: none;
+}
+
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <h1>Netflash</h1>
+        <div class="burger" onclick="toggleBurger(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
         <div>
-            <a href="index.html">Accueil</a>
         </div>
     </div>
 
-    <div class="game-container">
-        <h2 id="gameTitle">Loading Game...</h2>
-        <div id="game"></div>
+    <div id="mySidebar" class="sidebar">
+       <button class="closebtn" onclick="closeNav()">X</button>
     </div>
 
-    <button class="back-button" onclick="window.history.back()">Retour à l'Accueil</button>
+    <div class="space-invaders">
+        <div class="invader" style="top: -100px; left: 10%;"></div>
+        <div class="invader" style="top: -150px; left: 30%; animation-delay: 2s;"></div>
+        <div class="invader" style="top: -200px; left: 50%; animation-delay: 4s;"></div>
+        <div class="invader" style="top: -250px; left: 70%; animation-delay: 6s;"></div>
+        <div class="invader" style="top: -300px; left: 90%; animation-delay: 8s;"></div>
+    </div>
 
-    <footer>
-        <p>Allan B @2024</p>
-    </footer>
+    <div class="container">
+        <h2>Insert Coin To Play !</h2>
+        <p>Bienvenue dans l'arcade nostalgique où vous pouvez revivre les jeux flash qui ont marqué internet.</p>
+        
+        <p>Explorez, jouez et profitez des souvenirs inoubliables de l'âge d'or des jeux Flash Player.</p>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=pacman-flash&title=Pac%20-%20Man'">
+                    <img src="pacman.jpg" alt="Pac-Man">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=sonic&title=Sonic'">
+                    <img src="sonic.jpg" alt="Sonic">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=dbz&title=Dragon%20Ball%20Z'">
+                    <img src="dbz.jpg" alt="Dragon Ball Z">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=smash&title=Super%20Smash%20Flash'">
+                    <img src="smash.jpg" alt="Super Smash Flash">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=portal&title=Portal'">
+                    <img src="portal.jpg" alt="Portal">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=sonicrpg&title=Sonic%20RPG'">
+                    <img src="sonicrpg.jpg" alt="Sonic RPG">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=ben10&title=Ben%2010'">
+                    <img src="ben10.jpg" alt="Ben 10">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=batman&title=Batman'">
+                    <img src="batman.jpg" alt="Batman">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=spiderman&title=Spiderman'">
+                    <img src="spiderman.jpg" alt="Spiderman">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=donkey-kong&title=Donkey%20Kong'">
+                    <img src="donkeykong.jpg" alt="Donkey Kong">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=fancy&title=Fancy'">
+                    <img src="fancy.jpg" alt="Fancy">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=mcdo&title=McDonalds%20Game'">
+                    <img src="mcdonald.jpg" alt="Mc Do">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=mariobros&title=Super%20Mario%20Bros'">
+                    <img src="mariobros.jpg" alt="Super Mario Bros">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=mario&title=Mario'">
+                    <img src="mario.jpg" alt="Mario">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=run&title=Run%202'">
+                    <img src="run.jpg" alt="Run 2">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=simpsons&title=Simpsons'">
+                    <img src="simpsons.jpg" alt="Simpsons">
+                </div>
+                <div class="swiper-slide" onclick="window.location.href='game.html?game=lint&title=Lint'">
+                    <img src="lint.jpg" alt="Lint">
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
 
-    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+
+const swiper = new Swiper('.swiper-container', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: true,
+    coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 300,
+        modifier: 1.5,
+        slideShadows: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+
+        function toggleBurger(x) {
+            x.classList.toggle("change");
+            openNav();
         }
 
-        document.getElementById('gameTitle').innerText = getQueryParam('title');
-        document.getElementById('pageTitle').innerText = getQueryParam('title') + " - Allan's Nostalgic Arcade";
+        function openNav() {
+            const sidebar = document.getElementById("mySidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
 
-        const ruffle = window.RufflePlayer.newest();
-        const game = ruffle.createPlayer();
-        document.getElementById('game').appendChild(game);
-        game.load(getQueryParam('game') + '.swf');
-    </script>   
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
 
+    const playText = document.createElement('div');
+    playText.classList.add('play-text');
+    playText.textContent = 'Clique pour jouer';
+    document.body.appendChild(playText);
+
+    const slides = document.querySelectorAll('.swiper-slide img');
+
+    slides.forEach(slide => {
+        slide.addEventListener('mouseenter', (e) => {
+            playText.style.display = 'block';
+        });
+
+        slide.addEventListener('mouseleave', (e) => {
+            playText.style.display = 'none';
+        });
+
+        slide.addEventListener('mousemove', (e) => {
+         
+            playText.style.left = e.pageX + 15 + 'px'; 
+            playText.style.top = e.pageY + 15 + 'px'; 
+        });
+    });
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+     
+        swiper.slidePrev(); 
+    } else if (event.key === 'ArrowRight') {
+       
+        swiper.slideNext(); 
+    }
+});
+
+    </script>
+    <footer>
+        <p>Allan B @2024</p>
+    </footer>    
 </body>
 </html>
